@@ -45,7 +45,7 @@ export const authenticationMiddleware = async (
   next: NextFunction
 ) => {
   //  console.log(req.headers.authorization);
-  const [, token] = req.headers.authorization?.split?.(' ') || []; //! Have Jon Explain
+  const [, token] = req.headers.authorization?.split?.(' ') || []; 
 
   const userJwtData = getDataFromAuthToken(token);
 

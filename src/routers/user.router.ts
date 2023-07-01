@@ -8,9 +8,16 @@ import bcrypt from 'bcrypt';
 
 const userController = Router();
 
+//| Get Users 
+userController.get('user', async (req, res) => {
+  const users = prisma.user.findMany()
+  res.send(users)
+})
+
+
 //| Create New User 
 userController.post(
-   '/user/create',
+   'user/create',
    validateRequest({
      body: z.object({
        name: z.string(),
@@ -19,6 +26,8 @@ userController.post(
      }),
    }),
    async (req, res) => {
+    console.log('connected');
+    
      try {
        const foundUser = await prisma.user.findUnique({
          where: {

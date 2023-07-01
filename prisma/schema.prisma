@@ -15,12 +15,15 @@ model User {
   email String  @unique
   name  String
   passwordHash String
-  pages Pages[]  @relation("UserPages")
+  pages Pages[]  
 }
 
 model Pages {
   id Int @id @default(autoincrement())
   name String
-  teamName String
-  users User[] @relation("UserPages")
+  pageState String? 
+  pageCity String?
+  sport String?
+  homeVenue String? 
+  users User[] 
 }
