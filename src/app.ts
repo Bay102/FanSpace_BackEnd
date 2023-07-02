@@ -10,8 +10,6 @@ app.use(express.json());
 
 app.use(cors());
 
-
-
 export const prisma = new PrismaClient();
 
 app.use(userController); 
