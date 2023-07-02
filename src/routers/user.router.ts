@@ -9,15 +9,16 @@ import bcrypt from 'bcrypt';
 const userController = Router();
 
 //| Get Users 
-userController.get('user', async (req, res) => {
-  const users = prisma.user.findMany()
+userController.get('/user', async (req, res) => { 
+  console.log('connected');
+  const users = await prisma.user.findMany()
   res.send(users)
 })
 
 
 //| Create New User 
 userController.post(
-   'user/create',
+   '/user/create',
    validateRequest({
      body: z.object({
        name: z.string(),
@@ -25,9 +26,7 @@ userController.post(
        password: z.string()
      }),
    }),
-   async (req, res) => {
-    console.log('connected');
-    
+   async (req, res) => {    
      try {
        const foundUser = await prisma.user.findUnique({
          where: {
@@ -50,7 +49,7 @@ userController.post(
        res.status(201).json({ user });
      } catch (error) {
        console.error(error);
-       res.status(404).json({ message: error });
+       res.status(500).json({ message: error });
      }
    }
  );
