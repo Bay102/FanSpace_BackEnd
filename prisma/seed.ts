@@ -3,7 +3,7 @@ import { encryptPassword } from '../src/auth-utils';
 
 const clearDb = async () => {
   await prisma.user.deleteMany();
-  await prisma.pages.deleteMany();
+  await prisma.channels.deleteMany();
 };
 
 const seed = async () => {
@@ -38,7 +38,7 @@ const seed = async () => {
     },
   });
 
-  const VGK = await prisma.pages.create({
+  const VGK = await prisma.channels.create({
     data: {
       id: 1,
       name: 'VGK',
@@ -48,7 +48,7 @@ const seed = async () => {
       homeVenue: 'T-mobile Arena',
     },
   });
-  const LVR = await prisma.pages.create({
+  const LVR = await prisma.channels.create({
     data: {
       id: 2,
       name: 'Raiders',

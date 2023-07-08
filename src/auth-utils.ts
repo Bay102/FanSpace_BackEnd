@@ -6,7 +6,6 @@ import jwt from 'jsonwebtoken';
 import { prisma } from './app';
 import { NextFunction, Request, Response } from 'express';
 
-
 dotenv.config();
 
 const saltRounds = 11;
@@ -16,7 +15,7 @@ export const encryptPassword = (password: string) => {
 };
 
 export const createUnsecuredUserData = (user: User) => ({
-  email: user.email,
+  id: user.id,
 });
 
 export const createTokenForUser = (user: User) => {
@@ -38,7 +37,7 @@ export const getDataFromAuthToken = (token?: string) => {
   }
 };
 
-//| JWT STUFF ///////////////
+//* JWT STUFF ///////////////
 export const authenticationMiddleware = async (
   req: Request,
   res: Response,
@@ -65,4 +64,4 @@ export const authenticationMiddleware = async (
   req.user = userFromJwt;
   next();
 };
-//| JWT STUFF////////////////
+//* JWT STUFF////////////////

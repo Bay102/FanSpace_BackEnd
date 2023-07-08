@@ -3,6 +3,7 @@ import 'express-async-errors';
 import { PrismaClient, User } from '@prisma/client';
 import { userController } from './routers/user.router';
 import cors from 'cors'
+import { channelController } from './routers/channels.router';
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors());
 export const prisma = new PrismaClient();
 
 app.use(userController); 
+app.use(channelController)
 
 declare global {
   namespace Express {
@@ -30,4 +32,4 @@ declare global {
 }
 
 const port = 8080;
-app.listen(port, () => console.log(`🚀 Server ready at: http://localhost:${port}`));
+app.listen(port, () => console.log(`🚀 Server ready at: http://192.168.4.28:${port}`));

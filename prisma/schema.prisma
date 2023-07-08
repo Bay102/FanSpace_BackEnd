@@ -12,13 +12,13 @@ datasource db {
 
 model User {
   id    Int     @id @default(autoincrement())
-  email String  @unique
+  email String  @unique 
   name  String
   passwordHash String
-  pages Pages[]  
+  channels Channels[]  
 }
 
-model Pages {
+model Channels {
   id Int @id @default(autoincrement())
   name String
   pageState String? 
