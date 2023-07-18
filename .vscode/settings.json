@@ -1,0 +1,5 @@
+{
+   "CodeGPT.model": "gpt-3.5-turbo",
+   "CodeGPT.temperature": 0.5,
+   "CodeGPT.maxTokens": 900
+}

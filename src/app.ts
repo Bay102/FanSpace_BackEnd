@@ -31,5 +31,10 @@ declare global {
   }
 }
 
-const port = 8080;
-app.listen(port, () => console.log(`🚀 Server ready at: http://192.168.4.28:${port}`));
+//! Docker Port 
+// const port = 8080;
+
+//! Supabase Port 
+const port = 5432;
+
+app.listen(port, () => console.log(`🚀 Server ready & listening at: http://192.168.4.28:${port}`));
